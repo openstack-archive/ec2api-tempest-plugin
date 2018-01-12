@@ -54,10 +54,7 @@ class EC2_EBSInstanceTuneBDM(base.EC2TestCase):
 
     @decorators.idempotent_id('2f51dd78-ff1e-494a-bcbc-f47580df17cb')
     def test_launch_ebs_instance_with_persistent_root_device(self):
-        """
-
-        Launch EBS-backed instance with left root device after termination
-        """
+        """Launch EBS-backed instance with persistent root device"""
         instance_id = self.run_instance(ImageId=self.image_id,
             BlockDeviceMappings=[{'DeviceName': self.root_device_name,
                                   'Ebs': {'DeleteOnTermination': False}}])
@@ -132,7 +129,7 @@ class EC2_EBSInstanceTuneBDM(base.EC2TestCase):
 
 
 class EC2_EBSInstanceAttaching(base.EC2TestCase):
-    """
+    """Test attaching cases
 
     Launch instance with two attached volumes. One at first free slot (xxdb,
     other at some free slot (xxdh). Use full device name for the first and
@@ -288,7 +285,7 @@ class EC2_EBSInstanceAttaching(base.EC2TestCase):
 
 
 class EC2_EBSInstanceSnapshot(base.EC2TestCase):
-    """
+    """Test instance's snapshotting
 
     Launch EBS-backed image, snapshot root device, register image,
     and launch another instance from the image
@@ -363,7 +360,7 @@ class EC2_EBSInstanceSnapshot(base.EC2TestCase):
 
 
 class EC2_EBSInstanceResizeRootDevice(base.EC2TestCase):
-    """
+    """Test resizing root device on instance
 
     Launch EBS-backed instance, stop instance, detach root volume, snapshot it,
     create volume from snapshot with increased size, attach new root volume,

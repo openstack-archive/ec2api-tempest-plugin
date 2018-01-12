@@ -813,10 +813,7 @@ class EC2TestCase(base.BaseTestCase):
         return instances[0]
 
     def get_instance_bdm(self, instance_id, device_name):
-        """
-
-        device_name=None means getting bdm of root instance device
-        """
+        # device_name=None means getting bdm of root instance device
         instance = self.get_instance(instance_id)
         if not device_name:
             device_name = instance.get('RootDeviceName')
