@@ -23,8 +23,8 @@ from ec2api_tempest_plugin import config_opts as aws_config
 
 class AWSTempestPlugin(plugins.TempestPlugin):
     def load_tests(self):
-        base_path = os.path.split(os.path.dirname(os.path.dirname(
-            os.path.dirname(os.path.abspath(__file__)))))[0]
+        base_path = os.path.split(os.path.dirname(
+            os.path.abspath(__file__)))[0]
         test_dir = "ec2api_tempest_plugin"
         full_test_dir = os.path.join(base_path, test_dir)
         return full_test_dir, base_path
