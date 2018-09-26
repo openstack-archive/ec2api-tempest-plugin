@@ -14,6 +14,7 @@
 #    under the License.
 
 import os
+import six
 import sys
 import time
 import urllib2
@@ -162,7 +163,7 @@ class VpnTest(scenario_base.BaseScenarioTest):
                 LOG.warning(output)
             except Exception:
                 pass
-            raise exc_info[1], None, exc_info[2]
+            six.reraise(exc_info[1], None, exc_info[2])
         time.sleep(10)
 
         ssh_client.exec_command('ping -c 4 %s' % private_ip_in_vpc)

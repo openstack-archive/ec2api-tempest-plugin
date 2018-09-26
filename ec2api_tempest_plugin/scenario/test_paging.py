@@ -13,6 +13,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from six.moves import range
 import time
 
 import botocore.exceptions
@@ -48,7 +49,7 @@ class TagsPagingTest(scenario_base.BaseScenarioTest):
         self.get_volume_waiter().wait_available(volume_id)
 
         keys = list()
-        for dummy in xrange(0, self.TAGS_COUNT):
+        for dummy in range(0, self.TAGS_COUNT):
             key = data_utils.rand_name('key')
             value = 'aaa' if dummy < 6 else 'bbb'
             data = self.client.create_tags(Resources=[volume_id],
@@ -167,7 +168,7 @@ class VolumesPagingTest(scenario_base.BaseScenarioTest):
 
         zone = CONF.aws.aws_zone
         cls.ids = list()
-        for dummy in xrange(0, cls.VOLUMES_COUNT):
+        for dummy in range(0, cls.VOLUMES_COUNT):
             data = cls.client.create_volume(Size=1, AvailabilityZone=zone)
             volume_id = data['VolumeId']
             cls.addResourceCleanUpStatic(cls.client.delete_volume,
@@ -338,7 +339,7 @@ class InstancePagingTest(scenario_base.BaseScenarioTest):
             'MinCount': cls.INSTANCES_IN_RESERVATIONS_COUNT,
             'MaxCount': cls.INSTANCES_IN_RESERVATIONS_COUNT
         }
-        for dummy in xrange(0, cls.RESERVATIONS_COUNT):
+        for dummy in range(0, cls.RESERVATIONS_COUNT):
             data = cls.client.run_instances(*[], **kwargs)
             for instance in data['Instances']:
                 cls.ids.append(instance['InstanceId'])
