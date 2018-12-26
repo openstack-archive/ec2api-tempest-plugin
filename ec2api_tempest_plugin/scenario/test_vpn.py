@@ -15,9 +15,9 @@
 
 import os
 import six
+from six.moves.urllib.request import urlopen
 import sys
 import time
-import urllib2
 
 from lxml import etree
 from oslo_log import log
@@ -83,7 +83,7 @@ class VpnTest(scenario_base.BaseScenarioTest):
     def test_vpn_connectivity(self):
         is_amazon = 'amazon' in CONF.aws.ec2_url
 
-        response = urllib2.urlopen(self.OPENSWAN_LINK, timeout=30)
+        response = urlopen(self.OPENSWAN_LINK, timeout=30)
         content = response.read()
         if not is_amazon:
             # NOTE(andrey-mp): gating in openstack doesn't have internet access
