@@ -77,6 +77,8 @@ class InstancesInVPCTest(scenario_base.BaseScenarioTest):
     @decorators.idempotent_id('9c3a8066-68b2-4bd0-85e0-6d4a0d7cb053')
     @testtools.skipUnless(CONF.aws.run_ssh, 'SSH tests are disabled.')
     @testtools.skipUnless(CONF.aws.image_id, "image id is not defined")
+    @testtools.skipUnless(CONF.aws.run_incompatible_tests,
+        'skip due to bug #1818499')
     def test_default_gateway(self):
         novpc_group = self.create_standard_security_group()
         novpc_instance_id = self.run_instance(SecurityGroups=[novpc_group])
