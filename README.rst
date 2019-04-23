@@ -1,6 +1,6 @@
-===============================
-openstack
-===============================
+=====================
+ec2api tempest plugin
+=====================
 
 Tempest plugin ec2api_tempest_plugin
 
@@ -10,7 +10,7 @@ Note that this is a hard requirement.
 
 * Free software: Apache license
 * Documentation: https://docs.openstack.org/ec2-api/latest
-* Source: https://git.openstack.org/cgit/openstack/ec2api-tempest-plugin
+* Source: https://opendev.org/openstack/ec2api-tempest-plugin
 * Bugs: https://bugs.launchpad.net/ec2-api
 
 Features
