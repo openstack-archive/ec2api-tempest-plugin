@@ -228,7 +228,8 @@ class AddressTest(base.EC2TestCase):
 
     @base.skip_without_vpc()
     @decorators.idempotent_id('6f154e48-f260-4d8d-b1d1-a1cf174f58fa')
-    @testtools.skipUnless(CONF.aws.image_id, "image id is not defined")
+    @testtools.skip("flaky test")
+    # @testtools.skipUnless(CONF.aws.image_id, "image id is not defined")
     def test_associate_disassociate_vpc_addresses(self):
         aws_zone = CONF.aws.aws_zone
 
