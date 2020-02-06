@@ -228,22 +228,12 @@ class SecurityGroupInVPCTest(SecurityGroupBaseTest):
                           VpcId=self.vpc_id, GroupName='', Description=valid)
 
     @decorators.idempotent_id('3460cefd-c759-4738-ba75-b275939aad1d')
-    @testtools.skip(
-        "Temporarily skipped to merge fix"
-        " encoding/decoding in paging of"
-        " universal describer class"
-    )
     def test_ingress_rules(self):
         self._test_rules(self.client.authorize_security_group_ingress,
                          self.client.revoke_security_group_ingress,
                          'IpPermissions', self.vpc_id)
 
     @decorators.idempotent_id('74a5de83-69b4-4cc5-9431-e4c1f691f0c1')
-    @testtools.skip(
-        "Temporarily skipped to merge fix"
-        " encoding/decoding in paging of"
-        " universal describer class"
-    )
     def test_egress_rules(self):
         self._test_rules(self.client.authorize_security_group_egress,
                          self.client.revoke_security_group_egress,
