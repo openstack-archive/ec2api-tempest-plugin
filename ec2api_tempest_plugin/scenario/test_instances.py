@@ -142,11 +142,8 @@ class InstancesTest(scenario_base.BaseScenarioTest):
         waiter.wait_no_exception()
 
     @decorators.idempotent_id('df1bb8f2-193c-46ba-aa99-3981bbc367db')
-    @testtools.skip(
-        "Temporarily skipped to merge fix"
-        " encoding/decoding in paging of"
-        " universal describer class"
-    )
+    @testtools.skipUnless(CONF.aws.run_ssh, 'SSH tests are disabled.')
+    @testtools.skipUnless(CONF.aws.ami_image_location, "Image is absent in S3")
     def test_run_and_ping_registered_image(self):
         image_name = data_utils.rand_name("ami-name")
         data = self.client.register_image(
