@@ -60,11 +60,7 @@ class ImageTest(base.EC2TestCase):
             self.assertIsNotNone(ebs.get('VolumeType'))
 
     @decorators.idempotent_id('a139f5ea-45fd-4b3e-9a52-32de0f8c3bca')
-    @testtools.skip(
-        "Temporarily skipped to merge fix"
-        " encoding/decoding in paging of"
-        " universal describer class"
-    )
+    @testtools.skipUnless(CONF.aws.ebs_image_id, "EBS image id is not defined")
     def test_describe_image_with_filters(self):
         image_id = CONF.aws.ebs_image_id
         data = self.client.describe_images(ImageIds=[image_id])
