@@ -20,8 +20,6 @@ from tempest.lib import decorators
 from ec2api_tempest_plugin import base
 from ec2api_tempest_plugin import config
 
-import testtools
-
 CONF = config.CONF
 
 
@@ -55,11 +53,6 @@ class VpnConnectionTest(base.EC2TestCase):
         cls.get_vpn_gateway_waiter().wait_available(cls.vgw_id)
 
     @decorators.idempotent_id('57426aab-cf2d-4114-a11d-2bd6642ac606')
-    @testtools.skip(
-        "Temporarily skipped to merge fix"
-        " encoding/decoding in paging of"
-        " universal describer class"
-    )
     def test_create_delete_vpn_connection(self):
         data = self.client.create_vpn_connection(
             CustomerGatewayId=self.cgw_id, VpnGatewayId=self.vgw_id,
@@ -68,7 +61,7 @@ class VpnConnectionTest(base.EC2TestCase):
         vpn_clean = self.addResourceCleanUp(
             self.client.delete_vpn_connection, VpnConnectionId=vpn_id)
         vpn_config = etree.fromstring(
-            data['VpnConnection']['CustomerGatewayConfiguration'])
+            data['VpnConnection']['CustomerGatewayConfiguration'].encode())
         psks = vpn_config.xpath(
             '/vpn_connection/ipsec_tunnel/ike/pre_shared_key')
         self.assertNotEmpty(psks)
