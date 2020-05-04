@@ -2,5 +2,25 @@
     templates:
       - openstack-python3-ussuri-jobs
       - check-requirements
+    check:
+      jobs:
+        - ec2-api-functional-neutron-ussuri
+        - ec2-api-functional-neutron-train
+        - ec2-api-functional-neutron-stein
     gate:
       queue: ec2-api
+
+- job:
+    name: ec2-api-functional-neutron-ussuri
+    parent: ec2-api-functional-neutron
+    override-checkout: stable/ussuri
+
+- job:
+    name: ec2-api-functional-neutron-train
+    parent: ec2-api-functional-neutron
+    override-checkout: stable/train
+
+- job:
+    name: ec2-api-functional-neutron-stein
+    parent: ec2-api-functional-neutron
+    override-checkout: stable/stein     
