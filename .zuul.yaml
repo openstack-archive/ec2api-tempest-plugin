@@ -13,14 +13,17 @@
 - job:
     name: ec2-api-functional-neutron-ussuri
     parent: ec2-api-functional-neutron
+    nodeset: openstack-single-node-bionic
     override-checkout: stable/ussuri
 
 - job:
     name: ec2-api-functional-neutron-train
     parent: ec2-api-functional-neutron
+    nodeset: openstack-single-node-bionic
     override-checkout: stable/train
 
 - job:
     name: ec2-api-functional-neutron-stein
     parent: ec2-api-functional-neutron
+    nodeset: openstack-single-node-bionic
     override-checkout: stable/stein     

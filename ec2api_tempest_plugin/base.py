@@ -438,7 +438,7 @@ class EC2TestCase(base.BaseTestCase):
                     obj_id = obj_id(kw_args)
                     try:
                         waiter().wait_delete(obj_id)
-                    except botocore.exceptions.ClientError as e:
+                    except botocore.exceptions.ClientError:
                         LOG.exception('Exception occurred in cleanup waiting')
                         return False
             except botocore.exceptions.ClientError as e:
