@@ -12,6 +12,9 @@
       queue: ec2-api
       jobs:
         - ec2api-tempest-plugin-functional
+    experimental:
+      jobs:
+        - ec2api-tempest-plugin-functional-full
 
 - job:
     name: ec2api-tempest-plugin-functional
@@ -49,4 +52,11 @@
 - job:
     name: ec2api-tempest-plugin-functional-stein
     parent: ec2api-tempest-plugin-functional
-    override-checkout: stable/stein     
+    override-checkout: stable/stein
+
+- job:
+    name: ec2api-tempest-plugin-functional-full
+    parent: ec2api-tempest-plugin-functional
+    vars:
+      devstack_localrc:
+        RUN_LONG_TESTS: 1

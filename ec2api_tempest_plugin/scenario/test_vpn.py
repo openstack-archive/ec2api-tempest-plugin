@@ -89,7 +89,7 @@ class VpnTest(scenario_base.BaseScenarioTest):
             # NOTE(andrey-mp): gating in openstack doesn't have internet access
             # so we need to download this package and install it with dpkg
             filename = os.path.basename(self.OPENSWAN_LINK)
-            f = open(filename, 'w')
+            f = open(filename, 'wb')
             f.write(content)
             f.close()
 
