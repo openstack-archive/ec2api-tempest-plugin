@@ -19,7 +19,6 @@
 - job:
     name: ec2api-tempest-plugin-functional
     parent: devstack-tempest
-    pre-run: playbooks/pre.yaml
     timeout: 7800
     required-projects:
       - opendev.org/openstack/ec2-api
