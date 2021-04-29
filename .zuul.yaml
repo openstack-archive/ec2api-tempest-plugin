@@ -5,9 +5,10 @@
     check:
       jobs:
         - ec2api-tempest-plugin-functional
+        - ec2api-tempest-plugin-functional-wallaby
+        - ec2api-tempest-plugin-functional-victoria
         - ec2api-tempest-plugin-functional-ussuri
         - ec2api-tempest-plugin-functional-train
-        - ec2api-tempest-plugin-functional-stein
     gate:
       queue: ec2-api
       jobs:
@@ -39,6 +40,16 @@
         - ec2api-tempest-plugin
 
 - job:
+    name: ec2api-tempest-plugin-functional-wallaby
+    parent: ec2api-tempest-plugin-functional
+    override-checkout: stable/wallaby
+
+- job:
+    name: ec2api-tempest-plugin-functional-victoria
+    parent: ec2api-tempest-plugin-functional
+    override-checkout: stable/victoria
+
+- job:
     name: ec2api-tempest-plugin-functional-ussuri
     parent: ec2api-tempest-plugin-functional
     override-checkout: stable/ussuri
@@ -47,11 +58,6 @@
     name: ec2api-tempest-plugin-functional-train
     parent: ec2api-tempest-plugin-functional
     override-checkout: stable/train
-
-- job:
-    name: ec2api-tempest-plugin-functional-stein
-    parent: ec2api-tempest-plugin-functional
-    override-checkout: stable/stein
 
 - job:
     name: ec2api-tempest-plugin-functional-full
