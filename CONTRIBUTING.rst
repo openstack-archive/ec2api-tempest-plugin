@@ -1,17 +1,19 @@
-If you would like to contribute to the development of OpenStack, you must
-follow the steps in this page:
+The source repository for this project can be found at:
+  
+   https://opendev.org/openstack/ec2api-tempest-plugin
 
-   http://docs.openstack.org/infra/manual/developers.html
+Pull requests submitted through GitHub are not monitored.
 
-If you already have a good understanding of how the system works and your
-OpenStack accounts are set up, you can skip to the development workflow
-section of this documentation to learn how changes to OpenStack should be
-submitted for review via the Gerrit tool:
+To start contributing to OpenStack, follow the steps in the contribution guide
+to set up and use Gerrit:
 
-   http://docs.openstack.org/infra/manual/developers.html#development-workflow
+   https://docs.openstack.org/contributors/code-and-documentation/quick-start.html
 
-Pull requests submitted through GitHub will be ignored.
-
-Bugs should be filed on Launchpad, not GitHub:
+Bugs should be filed on Launchpad:
 
    https://bugs.launchpad.net/ec2-api
+
+For more specific information about contributing to this repository, see the
+ec2api-tempest-plugin contributor guide:
+
+   https://docs.openstack.org/ec2-api/latest/contributor/contributing.html
