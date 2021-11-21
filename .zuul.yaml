@@ -28,6 +28,8 @@
       - opendev.org/openstack/neutron-vpnaas
       - opendev.org/openstack/neutron-tempest-plugin
     vars:
+      devstack_localrc:
+        KEYSTONE_ADMIN_ENDPOINT: true
       devstack_services:
         tls-proxy: false
       tox_envlist: all
