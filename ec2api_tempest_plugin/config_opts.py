@@ -93,4 +93,7 @@ AWSGroup = [
     cfg.BoolOpt('run_ssh',
                 default=True,
                 help='Can block all tests that wants to ssh into instance.'),
+    cfg.BoolOpt('vpnaas_enabled',
+                default=False,
+                help='Enable VPN-related tests'),
 ]

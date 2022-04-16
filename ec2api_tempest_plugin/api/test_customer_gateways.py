@@ -32,7 +32,7 @@ class CustomerGatewayTest(base.EC2TestCase):
         super(CustomerGatewayTest, cls).setUpClass()
         if not base.TesterStateHolder().get_vpc_enabled():
             raise cls.skipException('VPC is disabled')
-        base.check_network_feature_enabled('vpnaas')
+        base.check_vpnaas_enabled()
 
     @decorators.idempotent_id('54a40b66-1675-44b1-938d-0cad2eb6afe4')
     def test_create_delete_customer_gateway(self):

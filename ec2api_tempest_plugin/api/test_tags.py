@@ -458,7 +458,7 @@ class TagTest(base.EC2TestCase):
 
     @testtools.skip("Some unknown bug. Will fix this later")
     @base.skip_without_vpc()
-    @base.skip_without_network_feature('vpnaas')
+    @base.skip_without_vpnaas_enabled()
     @decorators.idempotent_id('a0437171-81a1-4871-9b71-c7629b25c337')
     def test_tag_vpn_gateway(self):
         data = self.client.create_vpn_gateway(Type='ipsec.1')
@@ -476,7 +476,7 @@ class TagTest(base.EC2TestCase):
 
     @testtools.skip("Some unknown bug. Will fix this later")
     @base.skip_without_vpc()
-    @base.skip_without_network_feature('vpnaas')
+    @base.skip_without_vpnaas_enabled()
     @decorators.idempotent_id('ecd343b4-f448-4990-880d-02a68febc9cf')
     def test_tag_vpn_connection(self):
         data = self.client.create_customer_gateway(
