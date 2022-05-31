@@ -8,7 +8,6 @@
         - ec2api-tempest-plugin-functional-yoga
         - ec2api-tempest-plugin-functional-xena
         - ec2api-tempest-plugin-functional-wallaby
-        - ec2api-tempest-plugin-functional-victoria
     gate:
       queue: ec2-api
       jobs:
@@ -53,11 +52,6 @@
     name: ec2api-tempest-plugin-functional-wallaby
     parent: ec2api-tempest-plugin-functional
     override-checkout: stable/wallaby
-
-- job:
-    name: ec2api-tempest-plugin-functional-victoria
-    parent: ec2api-tempest-plugin-functional
-    override-checkout: stable/victoria
 
 - job:
     name: ec2api-tempest-plugin-functional-full
