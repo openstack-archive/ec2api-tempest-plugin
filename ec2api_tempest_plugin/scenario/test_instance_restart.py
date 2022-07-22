@@ -14,7 +14,6 @@
 #    under the License.
 
 from oslo_log import log
-from tempest.lib.common import ssh
 from tempest.lib.common.utils import data_utils
 from tempest.lib import decorators
 import testtools
@@ -22,6 +21,7 @@ import testtools
 from ec2api_tempest_plugin import base
 from ec2api_tempest_plugin import config
 from ec2api_tempest_plugin.scenario import base as scenario_base
+from ec2api_tempest_plugin import ssh
 
 CONF = config.CONF
 LOG = log.getLogger(__name__)

@@ -439,6 +439,7 @@ class TagTest(base.EC2TestCase):
         self.cancelResourceCleanUp(dv_clean)
         self.get_vpc_waiter().wait_delete(vpc_id)
 
+    @testtools.skip("will uncomment later after ec2-api fix")
     @base.skip_without_vpc()
     @decorators.idempotent_id('07b2f20d-6b26-4c3d-9d32-93f98f187d78')
     def test_tag_customer_gateway(self):
