@@ -1,4 +1,5 @@
 - project:
+    queue: ec2-api
     templates:
       - openstack-python3-zed-jobs
       - check-requirements
@@ -9,7 +10,6 @@
         - ec2api-tempest-plugin-functional-xena
         - ec2api-tempest-plugin-functional-wallaby
     gate:
-      queue: ec2-api
       jobs:
         - ec2api-tempest-plugin-functional
     experimental:
@@ -42,15 +42,18 @@
 - job:
     name: ec2api-tempest-plugin-functional-yoga
     parent: ec2api-tempest-plugin-functional
+    nodeset: openstack-single-node-focal
     override-checkout: stable/yoga
 - job:
     name: ec2api-tempest-plugin-functional-xena
     parent: ec2api-tempest-plugin-functional
+    nodeset: openstack-single-node-focal
     override-checkout: stable/xena
 
 - job:
     name: ec2api-tempest-plugin-functional-wallaby
     parent: ec2api-tempest-plugin-functional
+    nodeset: openstack-single-node-focal
     override-checkout: stable/wallaby
 
 - job:
