@@ -6,6 +6,7 @@
     check:
       jobs:
         - ec2api-tempest-plugin-functional
+        - ec2api-tempest-plugin-functional-zed
         - ec2api-tempest-plugin-functional-yoga
         - ec2api-tempest-plugin-functional-xena
         - ec2api-tempest-plugin-functional-wallaby
@@ -39,6 +40,11 @@
         neutron-tempest-plugin: https://opendev.org/openstack/neutron-tempest-plugin
       tempest_plugins:
         - ec2api-tempest-plugin
+- job:
+    name: ec2api-tempest-plugin-functional-zed
+    parent: ec2api-tempest-plugin-functional
+    nodeset: openstack-single-node-focal
+    override-checkout: stable/zed
 - job:
     name: ec2api-tempest-plugin-functional-yoga
     parent: ec2api-tempest-plugin-functional
