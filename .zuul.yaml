@@ -9,7 +9,6 @@
         - ec2api-tempest-plugin-functional-zed
         - ec2api-tempest-plugin-functional-yoga
         - ec2api-tempest-plugin-functional-xena
-        - ec2api-tempest-plugin-functional-wallaby
     gate:
       jobs:
         - ec2api-tempest-plugin-functional
@@ -55,12 +54,6 @@
     parent: ec2api-tempest-plugin-functional
     nodeset: openstack-single-node-focal
     override-checkout: stable/xena
-
-- job:
-    name: ec2api-tempest-plugin-functional-wallaby
-    parent: ec2api-tempest-plugin-functional
-    nodeset: openstack-single-node-focal
-    override-checkout: stable/wallaby
 
 - job:
     name: ec2api-tempest-plugin-functional-full
